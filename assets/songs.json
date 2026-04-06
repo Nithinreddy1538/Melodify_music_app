@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1,
+    "title": "Godari Gattu",
+    "artist": "Venkatesh  Aishwarya Rajesh",
+    "src": "assets/songs/[iSongs.info] 01 - Godari Gattu.mp3",
+    "poster": "assets/posters/sankranthiki vasthunnam.png",
+    "category": "Telugu music",
+    "duration": "4:09",
+    "color": "#7c5cfc"
+  },
+  {
+    "id": 2,
+    "title": "Chirunama Thana Chirunama",
+    "artist": "Nikhil Siddharth,Hebah Patel,Nandita Shwetha",
+    "src": "assets/songs/[iSongs.info] 01 - Chirunama Thana Chirunama.mp3",
+    "poster": "assets/posters/Screenshot 2026-03-19 222626.png",
+    "category": "Romantic",
+    "duration": "3:46",
+    "color": "#1db954"
+  },
+  {
+    "id": 3,
+    "title": "sommasilli pothunnave",
+    "artist": "Ramu Rathod, Divya Bhagat",
+    "src": "assets/songs/Sommasilli Pothunnave (Female Version).mp3",
+    "poster": "assets/posters/Screenshot 2026-03-19 224110.png",
+    "category": "Flok Songs",
+    "duration": "4:49",
+    "color": "#f7931e"
+  },
+  {
+    "id": 4,
+    "title": "iPhone Song",
+    "artist": "Gopichand, Dimple Hayathi",
+    "src": "assets/songs/[iSongs.info] 01 - iPhone Song.mp3",
+    "poster": "assets/posters/Screenshot 2026-03-20 192435.png",
+    "category": "Chill",
+    "duration": "3:23",
+    "color": "#ff6b6b"
+  },
+  {
+    "id": 5,
+    "title": "Premalo",
+    "artist": "Sridevi Harsh Roshan",
+    "src": "assets/songs/[iSongs.info] 01 - Premalo.mp3",
+    "poster": "https://img.youtube.com/vi/5m9sYqJNoWk/0.jpg",
+    "category": "Chill",
+    "duration": "5:31",
+    "color": "#00d2ff"
+  },
+  {
+    "id": 6,
+    "title": "pulamme pilla song ",
+    "artist": "Teja Sajja, Amritha Aiyer",
+    "src": "assets/songs/[iSongs.info] 06 - Poolamme Pilla.mp3",
+    "poster": "https://cdn.siasat.com/wp-content/uploads/2024/12/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzNiMGE5M2M0LWQ0ZGItNDgzOS05Nzc5LWVhMTA4MjY0ZmE2YS5qcGc-722x1024.jpeg",
+    "category": "Chill",
+    "duration": "4:27",
+    "color": "#ffd700"
+  },
+  {
+    "id": 7,
+    "title": "Forest Walk",
+    "artist": "Priyadarshi,Kavya Kalyanram ",
+    "src": "assets/songs/Ooru Palletooru.mp3",
+    "poster": "https://image.tmdb.org/t/p/original/75urJPkn3ES6vFPFsuiwfoIYZfJ.jpg",
+    "category": "Flok Songs",
+    "duration": "4:07",
+    "color": "#56ab2f"
+  },
+  {
+    "id": 8,
+    "title": "Pilla Padesaave",
+    "artist": "80s Revival",
+    "src": "assets/songs/Pilla Padesaave.mp3",
+    "poster": "https://images.plex.tv/photo?size=large-1280&scale=1&url=https:%2F%2Fmetadata-static.plex.tv%2F8%2Fgracenote%2F8b30fc2a9fc324f01444a4fe9396f9b3.jpg",
+    "category": "Romantic",
+    "duration": "3:57",
+    "color": "#f953c6"
+  },
+  {
+    "id": 9,
+    "title": "Karthika Deepam Remix Song",
+    "artist": "Ravi Teja,Ashika ,Ranganath,Dimple Hayathi",
+    "src": "assets/songs/Karthika Deepam Songs.mp3",
+    "poster": "https://cdn.district.in/movies-assets/images/cinema/Bhartha-Mahasayulaku-Wignyapthi-posgter-8104aeb0-c3b5-11f0-8f40-c14cedc6b81f.jpg",
+    "category": "Chill",
+    "duration": "2:55",
+    "color": "#00d2fe"
+  }
+]
+

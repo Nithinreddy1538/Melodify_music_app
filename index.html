@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Melodify — Music Player</title>
+  <link rel="stylesheet" href="style.css"/>
+  <!-- Font Awesome 6 for all icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div class="app-root">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-icon-wrap">
+          <i class="fa-solid fa-waveform-lines"></i>
+        </div>
+        <span class="logo-wordmark">Melodify</span>
+      </div>
+      <p class="sidebar-label">BROWSE</p>
+      <nav class="sidebar-nav" id="sidebar-nav">
+        <a href="#" class="nav-link active" data-filter="all">
+          <i class="fa-solid fa-house-chimney"></i>
+          <span>All Songs</span>
+        </a>
+        <a href="#" class="nav-link" data-filter="Telugu music">
+          <i class="fa-solid fa-bolt-lightning"></i>
+          <span>Telugu music</span>
+        </a>
+        <a href="#" class="nav-link" data-filter="Romantic">
+          <i class="fa-solid fa-wind"></i>
+          <span>Romantic</span>
+        </a>
+        <a href="#" class="nav-link" data-filter="Flok Songs">
+          <i class="fa-solid fa-headphones-simple"></i>
+          <span>Flok Songs</span>
+        </a>
+        <a href="#" class="nav-link" data-filter="Chill">
+          <i class="fa-solid fa-snowflake"></i>
+          <span>Chill</span>
+        </a>
+        <a href="#" class="nav-link" data-filter="Jazz">
+          <i class="fa-solid fa-music"></i>
+          <span>Jazz</span>
+        </a>
+      </nav>
+
+      <!-- Sidebar bottom info -->
+      <div class="sidebar-bottom">
+        <div class="sidebar-tip">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>Add songs via<br><code>assets/songs.json</code></span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ▌MAIN CONTENT ▐ -->
+    <main class="main" id="main-content">
+
+      <!-- Top bar: greeting + search -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <!-- Mobile: hamburger menu -->
+          <button class="hamburger" id="hamburger-btn" aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="greeting">
+            <h1 id="greeting-heading">Good Day 🎵</h1>
+            <p id="greeting-sub">Discover something new today</p>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="search-wrap" id="search-wrap">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="search"
+              id="search-input"
+              placeholder="Songs, artists, genres…"
+              autocomplete="off"
+              spellcheck="false"
+            />
+          </div>
+        </div>
+      </header>
+
+      <!-- NOW PLAYING HERO BANNER (hidden until a song plays) -->
+      <section class="hero-banner" id="hero-banner" aria-live="polite" hidden>
+        <div class="hero-bg" id="hero-bg"></div>
+        <img class="hero-poster" id="hero-poster" src="" alt="Now playing cover"/>
+        <div class="hero-info">
+          <span class="hero-chip">NOW PLAYING</span>
+          <h2 class="hero-title" id="hero-title">—</h2>
+          <p class="hero-artist" id="hero-artist">—</p>
+          <span class="hero-category" id="hero-category"></span>
+        </div>
+        <!-- Animated bars (CSS-only) -->
+        <div class="hero-bars" id="hero-bars">
+          <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
+        </div>
+      </section>
+
+      <!-- SONGS SECTION -->
+      <section class="songs-section">
+        <div class="songs-header">
+          <h2 class="songs-section-title" id="songs-section-title">All Songs</h2>
+          <span class="songs-count-badge" id="songs-count-badge">— tracks</span>
+        </div>
+
+        <!-- Song cards injected here by JS -->
+        <div class="songs-grid" id="songs-grid"></div>
+
+        <!-- Empty / no-results state -->
+        <div class="no-results" id="no-results" hidden>
+          <i class="fa-regular fa-face-sad-tear"></i>
+          <p>No songs found for "<strong id="no-results-query"></strong>"</p>
+          <button class="btn-ghost" id="no-results-clear">Clear search</button>
+        </div>
+
+        <!-- Loading skeleton (shown while JSON fetches) -->
+        <div class="skeleton-grid" id="skeleton-grid">
+          <div class="skeleton-card"><div class="sk-img"></div><div class="sk-line long"></div><div class="sk-line short"></div></div>
+          <div class="skeleton-card"><div class="sk-img"></div><div class="sk-line long"></div><div class="sk-line short"></div></div>
+          <div class="skeleton-card"><div class="sk-img"></div><div class="sk-line long"></div><div class="sk-line short"></div></div>
+          <div class="skeleton-card"><div class="sk-img"></div><div class="sk-line long"></div><div class="sk-line short"></div></div>
+          <div class="skeleton-card"><div class="sk-img"></div><div class="sk-line long"></div><div class="sk-line short"></div></div>
+          <div class="skeleton-card"><div class="sk-img"></div><div class="sk-line long"></div><div class="sk-line short"></div></div>
+        </div>
+      </section>
+
+    </main>
+  </div><!-- /.app-root -->
+
+  <!-- Mobile overlay for sidebar -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER PLAYER (fixed at bottom)
+  ══════════════════════════════════════════ -->
+  <footer class="player" id="player">
+
+    <!-- LEFT: Current song info -->
+    <div class="player-info">
+      <div class="player-thumb-wrap">
+        <img id="player-thumb" src="" alt="Cover"/>
+        <div class="player-thumb-ring" id="player-thumb-ring"></div>
+      </div>
+      <div class="player-meta">
+        <p class="player-track" id="player-track">Select a song to play</p>
+        <p class="player-artist" id="player-artist-name">—</p>
+      </div>
+      <button class="icon-btn like-btn" id="like-btn" title="Like song">
+        <i class="fa-regular fa-heart"></i>
+      </button>
+    </div>
+
+    <!-- CENTER: Controls + scrubber -->
+    <div class="player-center">
+      <div class="player-controls">
+        <button class="icon-btn sm" id="btn-shuffle" title="Shuffle" aria-label="Shuffle">
+          <i class="fa-solid fa-shuffle"></i>
+        </button>
+        <button class="icon-btn" id="btn-prev" title="Previous" aria-label="Previous song">
+          <i class="fa-solid fa-backward-step"></i>
+        </button>
+        <button class="icon-btn play-pause-btn" id="btn-play" title="Play" aria-label="Play or pause">
+          <i class="fa-solid fa-play" id="play-pause-icon"></i>
+        </button>
+        <button class="icon-btn" id="btn-next" title="Next" aria-label="Next song">
+          <i class="fa-solid fa-forward-step"></i>
+        </button>
+        <button class="icon-btn sm" id="btn-repeat" title="Repeat" aria-label="Repeat">
+          <i class="fa-solid fa-repeat"></i>
+        </button>
+      </div>
+
+      <!-- Scrubber row -->
+      <div class="scrubber-row">
+        <span class="time-label" id="time-current">0:00</span>
+        <div class="scrubber-track" id="scrubber-track" role="slider" aria-label="Seek" tabindex="0">
+          <div class="scrubber-fill" id="scrubber-fill">
+            <div class="scrubber-knob"></div>
+          </div>
+        </div>
+        <span class="time-label" id="time-total">0:00</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: Volume -->
+    <div class="player-right">
+      <button class="icon-btn sm" id="btn-mute" title="Mute" aria-label="Mute">
+        <i class="fa-solid fa-volume-high" id="volume-icon"></i>
+      </button>
+      <input
+        type="range"
+        id="volume-range"
+        class="volume-range"
+        min="0" max="1" step="0.01" value="0.75"
+        aria-label="Volume"
+      />
+    </div>
+
+  </footer>
+
+  <!-- Hidden HTML5 audio element — the audio engine -->
+  <audio id="audio" preload="metadata"></audio>
+
+  <!-- App JS -->
+  <script src="app.js"></script>
+</body>
+</html>
