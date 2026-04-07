@@ -30,51 +30,7 @@ spotify-clone/
 ## 🚀 Running the App
 
 >  https://nithinreddy1538.github.io/Melodify_music_app/
-### Option 1 — VS Code Live Server (easiest)
-1. Install VS Code + the **Live Server** extension
-2. Right-click `index.html` → **"Open with Live Server"**
-3. Opens at `http://127.0.0.1:5500`
-
-### Option 2 — Python
-```bash
-cd spotify-clone
-python -m http.server 8000
-# visit http://localhost:8000
-```
-
-### Option 3 — Node.js
-```bash
-cd spotify-clone
-npx serve .
-```
-
----
-
-## ➕ Adding New Songs (3 steps)
-
-### Step 1 — Add your audio file
-```
-assets/songs/  ← drop your .mp3 here
-```
-
-### Step 2 — Add your cover image
-```
-assets/posters/  ← drop your .jpg / .png here
-```
-
-### Step 3 — Edit songs.json
-Open `assets/songs.json` and add a new object to the array:
-```json
-{
-  "id": 9,
-  "title": "Your Song Title",
-  "artist": "Artist Name",
-  "src": "assets/songs/your-file.mp3",
-  "poster": "assets/posters/your-cover.jpg",
-  "category": "Lo-Fi",
-  "color": "#1db954"
-}
-```
+ 
 
 **Refresh the browser — done!** No HTML changes, no JS changes.
 
