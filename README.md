@@ -29,8 +29,7 @@ spotify-clone/
 
 ## 🚀 Running the App
 
-> ⚠️ You **must** use a local server — browsers block `fetch()` on `file://` URLs.
-
+>  https://nithinreddy1538.github.io/Melodify_music_app/
 ### Option 1 — VS Code Live Server (easiest)
 1. Install VS Code + the **Live Server** extension
 2. Right-click `index.html` → **"Open with Live Server"**
